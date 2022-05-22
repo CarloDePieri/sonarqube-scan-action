@@ -9,6 +9,8 @@ LABEL version="1.1.0" \
       com.github.actions.icon="check" \
       com.github.actions.color="green"
 
+# Workaround https://github.com/nektos/act/issues/896
+RUN ln -s $SONAR_SCANNER_HOME/bin/sonar-scanner /usr/local/bin/sonar-scanner
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
